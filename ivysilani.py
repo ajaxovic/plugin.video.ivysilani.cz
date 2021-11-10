@@ -382,7 +382,7 @@ def _https_ceska_televize_fetch(url, params):
                "Accept-encoding": "gzip",
                "Connection": "Keep-Alive",
                "User-Agent": "Dalvik/1.6.0 (Linux; U; Android 4.4.4; Nexus 7 Build/KTU84P)"}
-    conn = http.client.HTTPSConnection("www.ceskatelevize.cz")
+    conn = http.client.HTTPSConnection("www.ceskatelevize.cz", timeout=30)
     conn.request("POST", url, urllib.parse.urlencode(params), headers)
     response = conn.getresponse()
     if response.status == 200:
